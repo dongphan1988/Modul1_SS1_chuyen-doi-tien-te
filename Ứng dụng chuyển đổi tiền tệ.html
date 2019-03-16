@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Amount
+<input type="text" id="inputMoney"/>
+From Currency
+<select id="value1">
+    <option value="USD">USD</option>
+    <option value="VND">VND</option>
+</select>
+To Currency
+<select id="value2">
+    <option value="USD">USD</option>
+    <option value="VND">VND</option>
+</select>
+<button type="button" onclick="converMoney()">convert</button>
+<p id="outMoney"></p>
+<script>
+    function converMoney() {
+        let fromCurrency = document.getElementById("value1").value;
+        let toCurrency = document.getElementById("value2").value;
+        let amount = parseFloat(document.getElementById("inputMoney").value);
+        if (fromCurrency == "USD" && toCurrency == "VND"){
+            document.getElementById("outMoney").innerHTML = amount*23000+" VND";
+        }else if(fromCurrency == "VND" && toCurrency == "USD"){
+            document.getElementById("outMoney").innerHTML = amount/23000+" USD";
+        }else{
+            document.getElementById("outMoney").innerHTML = amount;
+        }
+    }
+</script>
+
+</body>
+</html>
